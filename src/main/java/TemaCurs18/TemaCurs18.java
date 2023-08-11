@@ -45,7 +45,9 @@ Homework.
 	
 		WebElement username = driver.findElement(By.id("log"));
 		assertFalse(username.isDisplayed());
-		WebElement password = driver.findElement(By.id("password"));	
+		//WebElement password = driver.findElement(By.id("password"));	
+		WebElement password = driver.findElement(
+				By.cssSelector("input[type='password'][name='pwd']"));
 		assertFalse(password.isDisplayed());
 	
 		login.click();
