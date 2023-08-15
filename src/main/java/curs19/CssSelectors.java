@@ -78,7 +78,7 @@ public class CssSelectors extends BaseTest{
 				 *$10.20 
 		//asserEqulas(price.getText(), "$10.20")
 		//asserTrue(price.getText().contains("10.20"))
-		//double price = Double.parse(price.getText().sibstyring(0.1))
+		//double price = Double.parse(price.getText().substring(0.1))
 				 */
 	}
 }

@@ -36,7 +36,7 @@ Homework.
 	 */
 	
 	@Test
-	public void testeLocatori()  {
+	public void testeLocatori() throws InterruptedException  {
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		WebElement login = driver.findElement(By.className("menu_user_login"));
 		jse.executeScript("arguments[0].setAttribute('style', 'background: red; border:4px solid blue')", 
@@ -45,12 +45,13 @@ Homework.
 	
 		WebElement username = driver.findElement(By.id("log"));
 		assertFalse(username.isDisplayed());
-		//WebElement password = driver.findElement(By.id("password"));	
-		WebElement password = driver.findElement(
-				By.cssSelector("input[type='password'][name='pwd']"));
+		WebElement password = driver.findElement(By.id("password"));	
+		//WebElement password = driver.findElement(
+				//By.cssSelector("input[type='password'][name='pwd']"));
 		assertFalse(password.isDisplayed());
 	
 		login.click();
+		Thread.sleep(2000);
 		assertTrue(username.isDisplayed());
 		
 		assertTrue(password.isDisplayed());
