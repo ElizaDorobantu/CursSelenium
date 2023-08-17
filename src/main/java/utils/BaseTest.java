@@ -24,7 +24,8 @@ public class BaseTest {
 		// clasa BaseTest e facuta ca si punct central pt a deschide /inchide browserul dintr-un singur loc
 		
 		driver.manage().window().maximize();//mareste fereastra de la browser
-		driver.get("https://keybooks.ro/");
+		//driver.get("https://keybooks.ro/");
+		driver.get("https://the-internet.herokuapp.com/javascript_alerts");
 	}
 	
 	@AfterClass

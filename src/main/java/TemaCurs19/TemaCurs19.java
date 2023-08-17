@@ -44,7 +44,27 @@ daca ne face redirect catre URL-ul : “https://keybooks.ro/shop/the-forest/”
 			
 			element.click();
 			Thread.sleep(2000);
+			//WebElement the Forest= driver.findElement(By.cssSelector(
+			//"div[aria-hidden='false'] a[href='the-forest']");
 			
+			/*
+			 * 
+			 * List<WebElement> categoryTabs = driver.findElements(By.cssSelector("sc_tabs_title"));
+			 * 
+			 * WebElement theForest = driver.findElement(By.cssSelector("div[aria-hidden ='false'] a[href='the-forest']"));
+			 * for(WebElement element : categoryTabs){
+			 * 	
+			 * 	element.click();
+			 *  theForest.isDisplayed();
+			 * 
+			 * }
+			 * 
+			 * theForest.click();
+			 * ---assert
+			 * 
+			 * 
+			 * if (i==categoryTabs.lenght()-1
+			 */
 			WebElement carte = driver.findElement(By.cssSelector(
 					"div[class*='sc_columns'] a[href*='the-forest']"));
 			jse.executeScript("arguments[0].setAttribute('style', 'background: green; border:4px solid blue')", 
@@ -53,7 +73,7 @@ daca ne face redirect catre URL-ul : “https://keybooks.ro/shop/the-forest/”
 			assertTrue(carte.isDisplayed());
 			
 			Thread.sleep(2000);
-			if (element.getText()=="AWARD WINNERS") {
+			if (element.getText().equals("AWARD WINNERS")) {
 				carte.click();
 				Thread.sleep(2000);
 				assertEquals(driver.getCurrentUrl(),"https://keybooks.ro/shop/the-forest/");
