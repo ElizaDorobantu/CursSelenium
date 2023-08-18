@@ -37,52 +37,24 @@ daca ne face redirect catre URL-ul : “https://keybooks.ro/shop/the-forest/”
 		jse.executeScript("arguments[0].setAttribute('style', 'background: orange; border:4px solid blue')",
 				menu.get(2));
 		
-		
+				
 		for(WebElement element: menu) {
-			jse.executeScript("arguments[0].setAttribute('style', 'background: pink; border:4px solid blue')", 
-					element);
-			
 			element.click();
-			Thread.sleep(2000);
-			//WebElement the Forest= driver.findElement(By.cssSelector(
-			//"div[aria-hidden='false'] a[href='the-forest']");
-			
-			/*
-			 * 
-			 * List<WebElement> categoryTabs = driver.findElements(By.cssSelector("sc_tabs_title"));
-			 * 
-			 * WebElement theForest = driver.findElement(By.cssSelector("div[aria-hidden ='false'] a[href='the-forest']"));
-			 * for(WebElement element : categoryTabs){
-			 * 	
-			 * 	element.click();
-			 *  theForest.isDisplayed();
-			 * 
-			 * }
-			 * 
-			 * theForest.click();
-			 * ---assert
-			 * 
-			 * 
-			 * if (i==categoryTabs.lenght()-1
-			 */
-			WebElement carte = driver.findElement(By.cssSelector(
-					"div[class*='sc_columns'] a[href*='the-forest']"));
+			Thread.sleep(3000);
+			WebElement theForest =driver.findElement(By.cssSelector("div[aria-hidden ='false'] a[href='the-forest']"));
+			//am mutat identificarea lui theForest aici
+			//cand era inainte de for crapa
+			assertTrue(theForest.isDisplayed());
 			jse.executeScript("arguments[0].setAttribute('style', 'background: green; border:4px solid blue')", 
-					carte);
-
-			assertTrue(carte.isDisplayed());
+					theForest);
 			
-			Thread.sleep(2000);
 			if (element.getText().equals("AWARD WINNERS")) {
-				carte.click();
+				theForest.click();
 				Thread.sleep(2000);
 				assertEquals(driver.getCurrentUrl(),"https://keybooks.ro/shop/the-forest/");
 			}
 			
-		}
-		
-		//carte.click();
-		
+		}		
 		
 	}
 }
