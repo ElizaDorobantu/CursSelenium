@@ -34,8 +34,7 @@ daca ne face redirect catre URL-ul : “https://keybooks.ro/shop/the-forest/”
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 		
 		List<WebElement> menu = driver.findElements(By.cssSelector("li[class*='sc_tabs_title']"));
-		jse.executeScript("arguments[0].setAttribute('style', 'background: orange; border:4px solid blue')",
-				menu.get(2));
+		
 		
 				
 		for(WebElement element: menu) {
