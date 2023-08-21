@@ -20,25 +20,55 @@ public class TemaCurs20 extends BaseTest{
  Dupa ce o gasim (atentie ca nu este pe prima pagina de 
 rezultate!), vom da click pe ea
 
+Pe pagina de produs verificam url ca este matching cu 
+https://keybooks.ro/shop/the-story-about-me/
+
+Apoi, apasam pe add to cart si verificam daca ne apare textul cu 
+added to cart
+
 	 * 
 	 */
 
 	@Test
 	public void cautareCarte() throws InterruptedException {
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		WebElement searchButton = driver.findElement(By.cssSelector("div[class='menu_main_wrap'] button[class*='search_submit']"));
+		
+		WebElement searchButton = driver.findElement(By.cssSelector("button[class*='search_submit']"));
 		searchButton.click();
-		searchButton.sendKeys( "The story about me");
-		searchButton.submit();
+		WebElement searchField = driver.findElement(By.cssSelector(
+				"div[class='menu_main_wrap'] input[class*='search_field']"));
+		searchField.sendKeys( "The story about me");
+		searchButton.click();
 			
-		WebElement loadMore = driver.findElement(By.cssSelector("a[id='viewmore_link']"));
+		WebElement loadMore = driver.findElement(By.cssSelector("a[class*='theme_button']"));
 		while (loadMore.isDisplayed()) {
 			loadMore.click();
-			Thread.sleep(2000);	
-		}
-			WebElement book = driver.findElement(By.cssSelector(
+			Thread.sleep(2000);
+			try { WebElement book = driver.findElement(By.cssSelector(
 					"a[href='https://keybooks.ro/shop/the-story-about-me/']:first-of-type"));
-		assertTrue(book.isDisplayed());
-
+			book.click();
+			
+			break;
+			}
+			catch(Exception exceptie) {
+			}
+			
+			Thread.sleep(1000);	
+		}
+		
+		String currentURL = driver.getCurrentUrl();
+		String expectesURL = "https://keybooks.ro/shop/the-story-about-me/";
+		assertTrue(currentURL.equals(expectesURL));
+		
+		WebElement addToCart = driver.findElement(By.cssSelector(
+				"button[class*='single_add_to_cart_button']"));
+		addToCart.click();
+		
+		WebElement addToCartMessage = driver.findElement(By.cssSelector(
+				"div[class='woocommerce-message']"));
+		String currentMessage=addToCartMessage.getText();
+		System.out.println(currentMessage);
+		String expectedMessage = " “The story about me” has been added to your cart.	";
+		
+		assertTrue(currentMessage.contains(expectedMessage));
 	}
 }

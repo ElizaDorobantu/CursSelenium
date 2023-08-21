@@ -21,7 +21,8 @@ public class BaseTest {
 		//comanda de mai sus e din versiunea 3. Incepand cu 4 nu mai e nevoie de path
 		//Boni Garcia webdriver manager a facut o librarie 
 		
-		driver = new EdgeDriver();
+		//driver = new EdgeDriver();
+		driver = new ChromeDriver();
 		
 		// clasa BaseTest e facuta ca si punct central pt a deschide /inchide browserul dintr-un singur loc
 		
@@ -29,7 +30,7 @@ public class BaseTest {
 		
 		//driver.get("https://the-internet.herokuapp.com/javascript_alerts");
 
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));//implicit
 
 		//driver.get("https://the-internet.herokuapp.com/dynamic_loading/1");
 		driver.get("https://keybooks.ro/");

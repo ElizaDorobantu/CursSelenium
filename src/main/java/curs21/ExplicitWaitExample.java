@@ -17,6 +17,10 @@ public class ExplicitWaitExample extends BaseTest{
 	@Test
 	public void explicitWait() {
 		//explicit wait -- asteapta pt numarul de sec dat ca elementul sa apara in DOM
+		//explicit wait asteapta sa se indeplineasca o conditie
+		// implicit wait doar cauta elementul indiferent dc e hidden sau nu
+		//la implicit wait odata gasit elementul merge mai departe
+		
 				
 				driver.findElement(By.cssSelector("div[id='start']>button")).click();;
 				
