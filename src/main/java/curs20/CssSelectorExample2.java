@@ -93,10 +93,10 @@ public class CssSelectorExample2 extends BaseTest{
 		username.sendKeys("TestUser");
 		
 		//logical OR --adk tagname[atribut=value],[atribut=value]
-		//input[type='password'][name='pwd']
+		//input[type='password'],[name='pwd']
 				
 		WebElement password = driver.findElement(
-			By.cssSelector("input[type='password'][name='pwd']"));
+			By.cssSelector("input[type='password'],[name='pwd']"));
 		password.sendKeys("TestUser");
 	}
 }
