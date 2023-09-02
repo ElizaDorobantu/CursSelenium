@@ -48,10 +48,10 @@ public class TemaCurs21 extends BaseTest{
 	
 	
 	
-	//WebElement submit = driver.findElement(By.className("p[class='form-submit'] input[name='submit']"));
-	//submit.click();
-	//Thread.sleep(3000);
-	//driver.switchTo().alert().accept();
+	WebElement submit = driver.findElement(By.cssSelector("p[class='form-submit'] input[name='submit']"));
+	submit.click();
+	Thread.sleep(3000);
+	driver.switchTo().alert().accept();
 	
 	WebElement stars = driver.findElement(By.cssSelector("p[class='stars'] a[class='star-4']"));
 	stars.click();
@@ -69,8 +69,8 @@ public class TemaCurs21 extends BaseTest{
 	assertTrue(checkboxReview.isSelected());
 	
 	
-	//submit.click();
-	//WebElement mesaj = driver.findElement(By.cssSelector("em[class='woocommerce-review__awaiting-approval']"));
-	//assertEquals(mesaj.getText(),"Your review is awaiting approval");
+	submit.click();
+	WebElement mesaj = driver.findElement(By.cssSelector("em[class='woocommerce-review__awaiting-approval']"));
+	assertEquals(mesaj.getText(),"Your review is awaiting approval");
 	}	
 }
